@@ -6,7 +6,7 @@
 /*   By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 14:47:09 by dmulish           #+#    #+#             */
-/*   Updated: 2017/05/29 18:08:23 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/05/30 17:14:58 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct	s_mod
 	int			type;
 	int			width;
 	char		*flags;
+	char		*modifs;
 }				t_mod;
 
 typedef struct	s_s
