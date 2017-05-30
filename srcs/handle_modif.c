@@ -6,7 +6,7 @@
 /*   By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/29 18:04:11 by dmulish           #+#    #+#             */
-/*   Updated: 2017/05/30 19:23:25 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/05/30 20:08:08 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	init_mod(t_mod *mod)
 	mod->size = 0;
 	mod->type = 0;
 	mod->width = 0;
-	mod->flags = (char*)ft_memalloc(4);
+	mod->flags = (char*)ft_memalloc(5);
 	mod->modifs = ft_strdup("-+ #.0123456789hljz");
 }
 
@@ -32,17 +32,10 @@ void	fill_struct_size(char *tmp, t_mod *mod)
 	(ft_strchr(tmp, 'j')) ? mod->size = 'j' : 0;
 }
 
-void	fill_struct(char *tmp, t_mod *mod)
+void	fill_struct_digits(char *tmp, t_mod *mod)
 {
 	int	i;
 
-	i = 0;
-	if (ft_strchr(tmp, '+'))
-		mod->flags[i++] = '+';
-	else if (ft_strchr(tmp, ' '))
-		mod->flags[i++] = ' ';
-	(ft_strchr(tmp, '-')) ? mod->flags[i++] = '-' : 0;
-	(ft_strchr(tmp, '#')) ? mod->flags[i++] = '#' : 0;
 	i = 0;
 	while (tmp[i])
 	{
@@ -55,6 +48,27 @@ void	fill_struct(char *tmp, t_mod *mod)
 		while (ft_isdigit(tmp[i]))
 			i++;
 	}
+}
+
+void	fill_struct(char *tmp, t_mod *mod)
+{
+	int	i;
+
+	i = 0;
+	if (ft_strchr(tmp, '#'))
+		mod->flags[i++] = '#';
+	else
+	{
+		if (ft_strchr(tmp, '+'))
+			mod->flags[i++] = '+';
+		else if (ft_strchr(tmp, ' '))
+			mod->flags[i++] = ' ';
+	}
+	if (ft_strchr(tmp, '-'))
+		mod->flags[i++] = '-';
+	else if (ft_strchr(tmp, '0'))
+		mod->flags[i++] = '0';
+	fill_struct_digits(tmp, mod);
 	fill_struct_size(tmp, mod);
 }
 
@@ -64,7 +78,6 @@ void	handle_modif(char *str, int *i, t_s *s)
 	char	*tmp;
 	t_mod	mod;
 
-	(void)s;
 	j = 0;
 	init_mod(&mod);
 	while (ft_strchr(mod.modifs, str[*i + j]))
@@ -73,6 +86,7 @@ void	handle_modif(char *str, int *i, t_s *s)
 	tmp = ft_strsub(str, (unsigned int)*i, j);
 	fill_struct(tmp, &mod);
 	free(tmp);
+	print_flags(&mod, s);
 	free(mod.flags);
 	free(mod.modifs);
 }

@@ -6,7 +6,7 @@
 /*   By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 14:47:09 by dmulish           #+#    #+#             */
-/*   Updated: 2017/05/30 17:14:58 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/05/30 19:56:52 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ typedef struct	s_s
 
 int				ft_printf(char *str, ...);
 
+void			type_d(t_mod *mod, t_s *s);
+void			print_flags(t_mod *mod, t_s *s);
 void			handle_modif(char *str, int *i, t_s *s);
 
 #endif

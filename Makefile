@@ -6,7 +6,7 @@
 #    By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/03 14:47:30 by dmulish           #+#    #+#              #
-#    Updated: 2017/05/29 19:25:05 by dmulish          ###   ########.fr        #
+#    Updated: 2017/05/30 19:57:27 by dmulish          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,9 @@ NAME = ft_printf
 
 FLAGS = -Wall -Wextra -Werror -I includes/ -g
 
-SRCS = srcs/ft_printf.c			\
+SRCS = srcs/type_d.c			\
+	   srcs/ft_printf.c			\
+	   srcs/print_flags.c		\
 	   srcs/handle_modif.c		\
 
 BINS = $(SRCS:.c=.o)
