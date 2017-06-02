@@ -6,7 +6,7 @@
 /*   By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/29 18:04:11 by dmulish           #+#    #+#             */
-/*   Updated: 2017/05/30 20:08:08 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/06/02 19:07:16 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ void	fill_struct_digits(char *tmp, t_mod *mod)
 {
 	int	i;
 
-	i = 0;
-	while (tmp[i])
+	i = -1;
+	while (tmp[++i])
 	{
-		if (ft_isdigit(tmp[i]) && (i == 0 || tmp[i - 1] != '.'))
+		if (!mod->width && ft_isdigit(tmp[i]) && (i == 0 || tmp[i - 1] != '.'))
 			mod->width = ft_atoi(tmp + i);
 		while (ft_isdigit(tmp[i]))
 			i++;
-		if (tmp[i] == '.')
+		if (!mod->prec && tmp[i] == '.')
 			mod->prec = ft_atoi(tmp + ++i);
 		while (ft_isdigit(tmp[i]))
 			i++;
@@ -64,10 +64,10 @@ void	fill_struct(char *tmp, t_mod *mod)
 		else if (ft_strchr(tmp, ' '))
 			mod->flags[i++] = ' ';
 	}
-	if (ft_strchr(tmp, '-'))
-		mod->flags[i++] = '-';
-	else if (ft_strchr(tmp, '0'))
+	if (ft_strchr(tmp, '0') && (i == 0 || !ft_isdigit(mod->flags[i - 1])))
 		mod->flags[i++] = '0';
+	else if (ft_strchr(tmp, '-'))
+		mod->flags[i++] = '-';
 	fill_struct_digits(tmp, mod);
 	fill_struct_size(tmp, mod);
 }
@@ -85,8 +85,9 @@ void	handle_modif(char *str, int *i, t_s *s)
 	mod.type = str[*i + j];
 	tmp = ft_strsub(str, (unsigned int)*i, j);
 	fill_struct(tmp, &mod);
-	free(tmp);
 	print_flags(&mod, s);
+	(*i) += j + 1;
+	free(tmp);
 	free(mod.flags);
 	free(mod.modifs);
 }
