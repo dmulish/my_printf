@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_flags.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+        */
+/*   By: dmulish <dmulish@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 19:28:41 by dmulish           #+#    #+#             */
-/*   Updated: 2017/06/02 17:19:38 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/06/04 04:09:34 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	print_flags(t_mod *mod, t_s *s)
 {
-	if (mod->type == 'd')
+	if (mod->type == 'd' || mod->type == 'D' || mod->type == 'i')
 		type_d(mod, s);
 }

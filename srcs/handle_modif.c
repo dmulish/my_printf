@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_modif.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+        */
+/*   By: dmulish <dmulish@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/29 18:04:11 by dmulish           #+#    #+#             */
-/*   Updated: 2017/06/02 19:07:16 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/06/04 01:20:38 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ void	fill_struct(char *tmp, t_mod *mod)
 		else if (ft_strchr(tmp, ' '))
 			mod->flags[i++] = ' ';
 	}
-	if (ft_strchr(tmp, '0') && (i == 0 || !ft_isdigit(mod->flags[i - 1])))
+	if (ft_strchr(tmp, '0') && (tmp[0] == 0 ||
+			!ft_isdigit(*(ft_strchr(tmp, '0') - 1))))
 		mod->flags[i++] = '0';
 	else if (ft_strchr(tmp, '-'))
 		mod->flags[i++] = '-';
