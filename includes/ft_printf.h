@@ -6,13 +6,14 @@
 /*   By: dmulish <dmulish@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 14:47:09 by dmulish           #+#    #+#             */
-/*   Updated: 2017/06/04 03:05:55 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/06/06 17:15:35 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef _FT_PRINTF_H
 # define _FT_PRINTF_H
 
+# define ABS(x) ((x < 0) ? -x : x)
 # include <stdarg.h>
 # include <stdlib.h>
 #include <stdio.h>

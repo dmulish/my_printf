@@ -6,7 +6,7 @@
 /*   By: dmulish <dmulish@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 15:39:19 by dmulish           #+#    #+#             */
-/*   Updated: 2017/06/04 04:09:46 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/06/06 17:07:55 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,7 @@ int		ft_printf(char *str, ...)
 
 int		main(void)
 {
-	printf("  :%.10i\n", -13);
-	ft_printf("my:%.10i\n", -13);
-	// printf("  :	%d\n", printf("  :	%%\\c\n"));
-	// printf("my:	%d\n", ft_printf("my:	%%\\c\n"));
+	printf("  :	%d\n", printf("  :%.10i\n", -13));
+	printf("my:	%d\n", ft_printf("my:%.10i\n", -13));
 	return (0);
 }
