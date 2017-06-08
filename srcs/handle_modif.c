@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_modif.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmulish <dmulish@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/29 18:04:11 by dmulish           #+#    #+#             */
-/*   Updated: 2017/06/04 01:20:38 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/06/08 17:32:25 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,10 @@ void	fill_struct_digits(char *tmp, t_mod *mod)
 		while (ft_isdigit(tmp[i]))
 			i++;
 		if (!mod->prec && tmp[i] == '.')
-			mod->prec = ft_atoi(tmp + ++i);
+		{
+			i++;
+			mod->prec = ft_atoi(tmp + i);
+		}
 		while (ft_isdigit(tmp[i]))
 			i++;
 	}
@@ -64,11 +67,13 @@ void	fill_struct(char *tmp, t_mod *mod)
 		else if (ft_strchr(tmp, ' '))
 			mod->flags[i++] = ' ';
 	}
-	if (ft_strchr(tmp, '0') && (tmp[0] == 0 ||
+	if (ft_strchr(tmp, '-'))
+		mod->flags[i++] = '-';
+	else if (ft_strchr(tmp, '0') && (tmp[0] == 0 ||
 			!ft_isdigit(*(ft_strchr(tmp, '0') - 1))))
 		mod->flags[i++] = '0';
-	else if (ft_strchr(tmp, '-'))
-		mod->flags[i++] = '-';
+	if (ft_strchr(tmp, '.'))
+		mod->flags[i++] = '.';
 	fill_struct_digits(tmp, mod);
 	fill_struct_size(tmp, mod);
 }

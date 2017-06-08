@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_digitnum.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/10 17:34:22 by dmulish           #+#    #+#             */
-/*   Updated: 2016/12/11 13:24:10 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/06/08 19:05:29 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_digitnum(long int n)
+int		ft_digitnum(long long n)
 {
 	size_t	i;
 

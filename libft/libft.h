@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/25 19:45:27 by dmulish           #+#    #+#             */
-/*   Updated: 2017/03/25 17:12:53 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/06/08 19:03:04 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,7 +144,7 @@ char				*ft_strtrim_any(char const *s, char c);
 
 size_t				ft_wordnum(char *s, char c);
 
-int					ft_digitnum(long int n);
+int					ft_digitnum(long long n);
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
 

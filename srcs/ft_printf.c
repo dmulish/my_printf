@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmulish <dmulish@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 15:39:19 by dmulish           #+#    #+#             */
-/*   Updated: 2017/06/06 17:07:55 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/06/08 16:52:22 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	init_struct(t_s *s)
 {
 	s->error = 0;
+	s->spaces_d = 0;
 	s->param_num = 0;
 	s->return_val = 0;
 }
@@ -47,11 +48,4 @@ int		ft_printf(char *str, ...)
 	print_it(str, &s);
 	va_end(s.ap);
 	return (s.return_val);
-}
-
-int		main(void)
-{
-	printf("  :	%d\n", printf("  :%.10i\n", -13));
-	printf("my:	%d\n", ft_printf("my:%.10i\n", -13));
-	return (0);
 }
