@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmulish <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 18:01:52 by dmulish           #+#    #+#             */
-/*   Updated: 2016/12/13 16:05:03 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/06/09 12:59:52 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,22 @@ static char	*putnum(char *s, long int n, int *i)
 
 char		*ft_itoa(int n)
 {
-	char		*res;
 	int			i;
+	char		*res;
 	long int	num;
 
 	i = 0;
-	num = n;
-	if (num < 0)
+	num = (n < 0) ? -n : n;
+	if (n < 0)
 	{
-		if ((res = (char *)malloc(sizeof(char) * ft_digitnum(num) + 2)) == 0)
+		if ((res = (char *)malloc(sizeof(char) *
+			ft_digitnum((unsigned long long)num) + 2)) == 0)
 			return (0);
 		res[i] = '-';
-		num *= -1;
 		i++;
 	}
-	else if ((res = (char *)malloc(sizeof(char) * ft_digitnum(num) + 1)) == 0)
+	else if ((res = (char *)malloc(sizeof(char) *
+		ft_digitnum((unsigned long long)num) + 1)) == 0)
 		return (0);
 	res = putnum(res, num, &i);
 	res[i + 1] = '\0';
