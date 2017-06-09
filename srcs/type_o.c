@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   type_d.c                                           :+:      :+:    :+:   */
+/*   type_o.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/30 19:52:07 by dmulish           #+#    #+#             */
-/*   Updated: 2017/06/09 14:37:21 by dmulish          ###   ########.fr       */
+/*   Created: 2017/06/09 14:39:05 by dmulish           #+#    #+#             */
+/*   Updated: 2017/06/09 16:53:25 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-long long	deal_with_size_d(t_mod *mod, t_s *s)
+intmax_t	deal_with_size_o(t_mod *mod, t_s *s)
 {
 	intmax_t	val;
 
@@ -33,7 +33,7 @@ long long	deal_with_size_d(t_mod *mod, t_s *s)
 	return (val);
 }
 
-void		type_spaces_d(t_mod *mod, char *num, int sign, t_s *s)
+void		type_spaces_o(t_mod *mod, char *num, int sign, t_s *s)
 {
 	int	i;
 	int	len;
@@ -60,7 +60,7 @@ void		type_spaces_d(t_mod *mod, char *num, int sign, t_s *s)
 	}
 }
 
-void		type_zeros_d(t_mod *mod, char *num, int sign, t_s *s)
+void		type_zeros_o(t_mod *mod, char *num, int sign, t_s *s)
 {
 	int	i;
 	int	num_len;
@@ -69,10 +69,8 @@ void		type_zeros_d(t_mod *mod, char *num, int sign, t_s *s)
 	num_len = (num[0] == '-') ? (int)ft_strlen(num) - 1 : (int)ft_strlen(num);
 	s->return_val += (ft_strchr(mod->flags, '.') && !mod->prec &&
 		!ft_strcmp(num, "0")) ? 0 : num_len;
-	if (ft_strchr(mod->flags, '+') || num[0] == '-')
-		s->return_val += (num[0] == '-') ? write(1, "-", 1) : write(1, "+", 1);
-	else if (ft_strchr(mod->flags, ' '))
-		s->return_val += (num[0] == '-') ? write(1, "-", 1) : write(1, " ", 1);
+	if (ft_strchr(mod->flags, '#'))
+		s->return_val += write(1, "0", 1);
 	if (ft_strchr(mod->flags, '0'))
 	{
 		while (++i < (mod->width - num_len - sign - s->spaces_d))
@@ -85,27 +83,26 @@ void		type_zeros_d(t_mod *mod, char *num, int sign, t_s *s)
 	}
 }
 
-void		type_d(t_mod *mod, t_s *s)
+void		type_o(t_mod *mod, t_s *s)
 {
 	int			sign;
 	char		*num;
-	long long	val;
+	intmax_t	val;
 
-	val = deal_with_size_d(mod, s);
-	num = ft_itoa_long(val);
-	sign = (ft_strchr(mod->flags, '+') || ft_strchr(mod->flags, ' ') ||
-		num[0] == '-') ? 1 : 0;
+	val = deal_with_size_o(mod, s);
+	num = ft_itoa_base(val, 8, 'l');
+	sign = (ft_strchr(mod->flags, '#')) ? 1 : 0;
 	if (ft_strchr(mod->flags, '-'))
 	{
-		type_zeros_d(mod, num, sign, s);
+		type_zeros_o(mod, num, sign, s);
 		if (!(ft_strchr(mod->flags, '.') && mod->prec == 0 && val == 0))
 			(mod->flags && num[0] == '-') ? ft_putstr(num + 1) : ft_putstr(num);
-		type_spaces_d(mod, num, sign, s);
+		type_spaces_o(mod, num, sign, s);
 	}
 	else
 	{
-		type_spaces_d(mod, num, sign, s);
-		type_zeros_d(mod, num, sign, s);
+		type_spaces_o(mod, num, sign, s);
+		type_zeros_o(mod, num, sign, s);
 		if (!(ft_strchr(mod->flags, '.') && mod->prec == 0 && val == 0))
 			(mod->flags && num[0] == '-') ? ft_putstr(num + 1) : ft_putstr(num);
 	}

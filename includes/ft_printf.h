@@ -6,13 +6,12 @@
 /*   By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 14:47:09 by dmulish           #+#    #+#             */
-/*   Updated: 2017/06/08 19:01:12 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/06/09 18:05:10 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef _FT_PRINTF_H
 # define _FT_PRINTF_H
-# define ABS(x) ((x < 0) ? -x : x)
 
 # include <stdarg.h>
 # include <stdlib.h>
@@ -41,6 +40,10 @@ typedef struct	s_s
 int				ft_printf(char *str, ...);
 
 void			type_d(t_mod *mod, t_s *s);
+void			type_o(t_mod *mod, t_s *s);
+void			type_s(t_mod *mod, t_s *s);
+void			type_x(t_mod *mod, t_s *s);
+void			type_big_d(t_mod *mod, t_s *s);
 void			print_flags(t_mod *mod, t_s *s);
 void			handle_modif(char *str, int *i, t_s *s);
 

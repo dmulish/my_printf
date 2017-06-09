@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   type_d.c                                           :+:      :+:    :+:   */
+/*   type_big_d.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/30 19:52:07 by dmulish           #+#    #+#             */
-/*   Updated: 2017/06/09 14:37:21 by dmulish          ###   ########.fr       */
+/*   Created: 2017/06/09 13:11:57 by dmulish           #+#    #+#             */
+/*   Updated: 2017/06/09 15:38:56 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-long long	deal_with_size_d(t_mod *mod, t_s *s)
+intmax_t	deal_with_size_big_d(t_mod *mod, t_s *s)
 {
 	intmax_t	val;
 
-	if (mod->size == 'h')
-		val = (short)va_arg(s->ap, int);
-	else if (mod->size == 'H')
-		val = (signed char)va_arg(s->ap, int);
-	else if (mod->size == 'l')
+	if (mod->size == 'l' && mod->type != 'u')
 		val = va_arg(s->ap, long);
-	else if (mod->size == 'L')
+	if (mod->size == 'l' && mod->type == 'u')
+		val = va_arg(s->ap, unsigned long);
+	else if (mod->size == 'L' || mod->type == 'D')
 		val = va_arg(s->ap, long long);
 	else if (mod->size == 'z')
 		val = va_arg(s->ap, size_t);
 	else if (mod->size == 'j')
 		val = va_arg(s->ap, intmax_t);
+	else if (mod->type == 'u')
+		val = va_arg(s->ap, unsigned int);
 	else
-		val = va_arg(s->ap, int);
+		val = va_arg(s->ap, unsigned long);
 	return (val);
 }
 
-void		type_spaces_d(t_mod *mod, char *num, int sign, t_s *s)
+void		type_spaces_big_d(t_mod *mod, char *num, int sign, t_s *s)
 {
 	int	i;
 	int	len;
@@ -60,7 +60,7 @@ void		type_spaces_d(t_mod *mod, char *num, int sign, t_s *s)
 	}
 }
 
-void		type_zeros_d(t_mod *mod, char *num, int sign, t_s *s)
+void		type_zeros_big_d(t_mod *mod, char *num, int sign, t_s *s)
 {
 	int	i;
 	int	num_len;
@@ -69,9 +69,9 @@ void		type_zeros_d(t_mod *mod, char *num, int sign, t_s *s)
 	num_len = (num[0] == '-') ? (int)ft_strlen(num) - 1 : (int)ft_strlen(num);
 	s->return_val += (ft_strchr(mod->flags, '.') && !mod->prec &&
 		!ft_strcmp(num, "0")) ? 0 : num_len;
-	if (ft_strchr(mod->flags, '+') || num[0] == '-')
+	if ((ft_strchr(mod->flags, '+') && mod->type != 'u') || num[0] == '-')
 		s->return_val += (num[0] == '-') ? write(1, "-", 1) : write(1, "+", 1);
-	else if (ft_strchr(mod->flags, ' '))
+	else if (ft_strchr(mod->flags, ' ') && mod->type != 'u')
 		s->return_val += (num[0] == '-') ? write(1, "-", 1) : write(1, " ", 1);
 	if (ft_strchr(mod->flags, '0'))
 	{
@@ -85,27 +85,27 @@ void		type_zeros_d(t_mod *mod, char *num, int sign, t_s *s)
 	}
 }
 
-void		type_d(t_mod *mod, t_s *s)
+void		type_big_d(t_mod *mod, t_s *s)
 {
 	int			sign;
 	char		*num;
-	long long	val;
+	intmax_t	val;
 
-	val = deal_with_size_d(mod, s);
+	val = deal_with_size_big_d(mod, s);
 	num = ft_itoa_long(val);
 	sign = (ft_strchr(mod->flags, '+') || ft_strchr(mod->flags, ' ') ||
 		num[0] == '-') ? 1 : 0;
 	if (ft_strchr(mod->flags, '-'))
 	{
-		type_zeros_d(mod, num, sign, s);
+		type_zeros_big_d(mod, num, sign, s);
 		if (!(ft_strchr(mod->flags, '.') && mod->prec == 0 && val == 0))
 			(mod->flags && num[0] == '-') ? ft_putstr(num + 1) : ft_putstr(num);
-		type_spaces_d(mod, num, sign, s);
+		type_spaces_big_d(mod, num, sign, s);
 	}
 	else
 	{
-		type_spaces_d(mod, num, sign, s);
-		type_zeros_d(mod, num, sign, s);
+		type_spaces_big_d(mod, num, sign, s);
+		type_zeros_big_d(mod, num, sign, s);
 		if (!(ft_strchr(mod->flags, '.') && mod->prec == 0 && val == 0))
 			(mod->flags && num[0] == '-') ? ft_putstr(num + 1) : ft_putstr(num);
 	}

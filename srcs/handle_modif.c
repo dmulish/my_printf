@@ -6,7 +6,7 @@
 /*   By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/29 18:04:11 by dmulish           #+#    #+#             */
-/*   Updated: 2017/06/08 17:32:25 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/06/09 14:15:07 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,10 @@ void	fill_struct(char *tmp, t_mod *mod)
 	i = 0;
 	if (ft_strchr(tmp, '#'))
 		mod->flags[i++] = '#';
-	else
-	{
-		if (ft_strchr(tmp, '+'))
-			mod->flags[i++] = '+';
-		else if (ft_strchr(tmp, ' '))
-			mod->flags[i++] = ' ';
-	}
+	if (ft_strchr(tmp, '+'))
+		mod->flags[i++] = '+';
+	else if (ft_strchr(tmp, ' '))
+		mod->flags[i++] = ' ';
 	if (ft_strchr(tmp, '-'))
 		mod->flags[i++] = '-';
 	else if (ft_strchr(tmp, '0') && (tmp[0] == 0 ||

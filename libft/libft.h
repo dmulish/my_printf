@@ -6,12 +6,13 @@
 /*   By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/25 19:45:27 by dmulish           #+#    #+#             */
-/*   Updated: 2017/06/09 12:56:32 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/06/09 17:38:50 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef _LIBFT_H
 # define _LIBFT_H
+# define ABS(v) ((v) < 0 ? -(v) : (v))
 
 # include <sys/types.h>
 # include <sys/uio.h>
@@ -159,5 +160,7 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
 int					ft_atoi_base(char *str, int base);
+
+char				*ft_itoa_base(intmax_t num, int base, int letter_size);
 
 #endif
