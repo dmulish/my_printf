@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+        */
+/*   By: dmulish <dmulish@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/25 19:45:27 by dmulish           #+#    #+#             */
-/*   Updated: 2017/06/09 17:38:50 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/06/10 01:09:13 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef _LIBFT_H
 # define _LIBFT_H
+# define BUFF_SIZE 32
 # define ABS(v) ((v) < 0 ? -(v) : (v))
 
 # include <sys/types.h>
@@ -19,7 +20,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
-# define BUFF_SIZE 32
 
 typedef struct		s_list
 {
