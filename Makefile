@@ -6,7 +6,7 @@
 #    By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/03 14:47:30 by dmulish           #+#    #+#              #
-#    Updated: 2017/06/09 18:05:16 by dmulish          ###   ########.fr        #
+#    Updated: 2017/06/09 19:40:53 by dmulish          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME = libftprintf.a
 
 FLAGS = -Wall -Wextra -Werror -I includes/ -I libft/ -g
 
-SRCS = srcs/type_d.c			\
+SRCS = srcs/type_c.c			\
+	   srcs/type_d.c			\
 	   srcs/type_o.c			\
 	   srcs/type_s.c			\
 	   srcs/type_x.c			\
@@ -32,6 +33,7 @@ SRCS_LIB = libft/ft_atoi.c		\
 		   libft/ft_strsub.c	\
 		   libft/ft_strdup.c	\
 		   libft/ft_strcmp.c	\
+		   libft/ft_putchar.c	\
 		   libft/ft_isdigit.c	\
 		   libft/ft_toupper.c	\
 		   libft/ft_digitnum.c	\
