@@ -6,7 +6,7 @@
 /*   By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 19:28:41 by dmulish           #+#    #+#             */
-/*   Updated: 2017/06/09 19:40:29 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/06/10 12:31:25 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,8 @@ void	print_flags(t_mod *mod, t_s *s)
 		type_s(mod, s);
 	else if (mod->type == 'c' || mod->type == 'C')
 		type_c(mod, s);
+	else if (mod->type == 'p')
+		type_p(mod, s);
+	else
+		type_smth(mod, s);
 }

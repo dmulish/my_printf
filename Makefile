@@ -6,7 +6,7 @@
 #    By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/03 14:47:30 by dmulish           #+#    #+#              #
-#    Updated: 2017/06/09 19:40:53 by dmulish          ###   ########.fr        #
+#    Updated: 2017/06/10 12:24:12 by dmulish          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,10 @@ FLAGS = -Wall -Wextra -Werror -I includes/ -I libft/ -g
 SRCS = srcs/type_c.c			\
 	   srcs/type_d.c			\
 	   srcs/type_o.c			\
+	   srcs/type_p.c			\
 	   srcs/type_s.c			\
 	   srcs/type_x.c			\
+	   srcs/type_smth.c			\
 	   srcs/ft_printf.c			\
 	   srcs/type_big_d.c		\
 	   srcs/print_flags.c		\
