@@ -6,7 +6,7 @@
 /*   By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/12 14:47:15 by dmulish           #+#    #+#             */
-/*   Updated: 2017/07/12 14:50:47 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/07/12 15:46:56 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*putnum_u(char *s, unsigned long long num, int *i)
 	return (s);
 }
 
-char	*ft_itoa_ulong(unsigned long long n)
+char	*ft_itoa_ulong(size_t n)
 {
 	int					i;
 	char				*res;
