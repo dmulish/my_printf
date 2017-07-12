@@ -6,7 +6,7 @@
 /*   By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/12 14:06:08 by dmulish           #+#    #+#             */
-/*   Updated: 2017/07/12 15:50:17 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/07/12 16:30:01 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@ intmax_t	deal_with_size_u(t_mod *mod, t_s *s)
 {
 	intmax_t	val;
 
-	if ((mod->type == 'u' && mod->size == 'l') || mod->type == 'U')
+	if ((mod->type == 'u' && mod->size == 'l') ||
+			(mod->type == 'U' && !mod->size))
 		val = va_arg(s->ap, unsigned long);
-	if (mod->size == 'L')
+	else if (mod->size == 'L')
 		val = va_arg(s->ap, unsigned long long);
 	else if (mod->size == 'z')
 		val = va_arg(s->ap, size_t);
