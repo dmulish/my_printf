@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   type_s.c                                           :+:      :+:    :+:   */
+/*   type_big_s.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/09 18:05:44 by dmulish           #+#    #+#             */
-/*   Updated: 2017/07/12 16:08:03 by dmulish          ###   ########.fr       */
+/*   Created: 2017/07/12 16:08:21 by dmulish           #+#    #+#             */
+/*   Updated: 2017/07/12 16:22:59 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*put_str(char *str, t_s *s, t_mod *mod)
+wchar_t	*put_bstr(wchar_t *str, t_s *s, t_mod *mod)
 {
-	if (!(str = va_arg(s->ap, char*)) && !mod->width)
+	if (!(str = va_arg(s->ap, wchar_t*)) && !mod->width)
 	{
 		ft_putstr("(null)");
 		s->return_val += 6;
@@ -22,14 +22,14 @@ char	*put_str(char *str, t_s *s, t_mod *mod)
 	return (str);
 }
 
-void	type_spaces_s(t_mod *mod, char *str, t_s *s)
+void	type_spaces_bs(t_mod *mod, wchar_t *str, t_s *s)
 {
 	int	i;
 	int	len;
 	int	str_len;
 
 	i = -1;
-	str_len = (int)ft_strlen(str);
+	str_len = (int)ft_bstrlen(str);
 	len = (!ft_strchr(mod->flags, '.') || !str_len || (mod->prec > str_len))
 		? str_len : mod->prec;
 	if (ft_strchr(mod->flags, '.'))
@@ -47,49 +47,49 @@ void	type_spaces_s(t_mod *mod, char *str, t_s *s)
 	}
 }
 
-void	minus_s(t_mod *mod, t_s *s, char *str)
+void	minus_bs(t_mod *mod, t_s *s, wchar_t *str)
 {
 	int	i;
 
 	i = -1;
-	if (!mod->prec && ft_strlen(str))
+	if (!mod->prec && ft_bstrlen(str))
 	{
 		if (!ft_strchr(mod->flags, '.'))
 		{
-			ft_putstr(str);
-			s->return_val += ft_strlen(str);
+			ft_putbstr(str);
+			s->return_val += ft_bstrlen(str);
 		}
 	}
-	else if (ft_strlen(str))
+	else if (ft_bstrlen(str))
 	{
 		while (++i < mod->prec && str[i])
 			s->return_val += write(1, &str[i], 1);
 	}
-	type_spaces_s(mod, str, s);
+	type_spaces_bs(mod, str, s);
 }
 
-void	type_s(t_mod *mod, t_s *s)
+void	type_big_s(t_mod *mod, t_s *s)
 {
 	int		i;
-	char	*str;
+	wchar_t	*str;
 
 	i = -1;
 	str = 0;
-	str = put_str(str, s, mod);
+	str = put_bstr(str, s, mod);
 	if (ft_strchr(mod->flags, '-'))
-		minus_s(mod, s, str);
+		minus_bs(mod, s, str);
 	else
 	{
-		type_spaces_s(mod, str, s);
-		if (!mod->prec && ft_strlen(str))
+		type_spaces_bs(mod, str, s);
+		if (!mod->prec && ft_bstrlen(str))
 		{
 			if (!ft_strchr(mod->flags, '.'))
 			{
-				ft_putstr(str);
-				s->return_val += ft_strlen(str);
+				ft_putbstr(str);
+				s->return_val += ft_bstrlen(str);
 			}
 		}
-		else if (ft_strlen(str))
+		else if (ft_bstrlen(str))
 		{
 			while (++i < mod->prec && str[i])
 				s->return_val += write(1, &str[i], 1);

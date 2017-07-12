@@ -6,7 +6,7 @@
 /*   By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 14:47:09 by dmulish           #+#    #+#             */
-/*   Updated: 2017/07/12 15:46:55 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/07/12 16:21:16 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct	s_s
 
 int				ft_printf(char *str, ...);
 
+void			ft_putbstr(wchar_t *s);
 void			type_c(t_mod *mod, t_s *s);
 void			type_d(t_mod *mod, t_s *s);
 void			type_o(t_mod *mod, t_s *s);
@@ -48,10 +49,13 @@ void			type_u(t_mod *mod, t_s *s);
 void			type_x(t_mod *mod, t_s *s);
 void			type_smth(t_mod *mod, t_s *s);
 void			type_big_d(t_mod *mod, t_s *s);
+void			type_big_s(t_mod *mod, t_s *s);
 void			print_flags(t_mod *mod, t_s *s);
 void			handle_modif(char *str, int *i, t_s *s);
 
 char			*ft_itoa_ulong(size_t n);
 char			*ft_itoa_long(long long n);
+
+size_t			ft_bstrlen(wchar_t *str);
 
 #endif
