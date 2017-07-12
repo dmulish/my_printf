@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   type_big_d.c                                       :+:      :+:    :+:   */
+/*   type_u.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/09 13:11:57 by dmulish           #+#    #+#             */
-/*   Updated: 2017/07/12 14:29:55 by dmulish          ###   ########.fr       */
+/*   Created: 2017/07/12 14:06:08 by dmulish           #+#    #+#             */
+/*   Updated: 2017/07/12 14:48:23 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-intmax_t	deal_with_size_big_d(t_mod *mod, t_s *s)
+intmax_t	deal_with_size_u(t_mod *mod, t_s *s)
 {
 	intmax_t	val;
 
-	if (mod->size == 'z')
+	if ((mod->type == 'u' && mod->size == 'l') || mod->type == 'U')
+		val = va_arg(s->ap, unsigned long);
+	if (mod->size == 'L')
+		val = va_arg(s->ap, unsigned long long);
+	else if (mod->size == 'z')
 		val = va_arg(s->ap, size_t);
 	else if (mod->size == 'j')
 		val = va_arg(s->ap, intmax_t);
 	else
-		val = va_arg(s->ap, long long);
+		val = va_arg(s->ap, unsigned int);
 	return (val);
 }
 
-void		type_spaces_big_d(t_mod *mod, char *num, int sign, t_s *s)
+void		type_spaces_u(t_mod *mod, char *num, int sign, t_s *s)
 {
 	int	i;
 	int	len;
@@ -52,7 +56,7 @@ void		type_spaces_big_d(t_mod *mod, char *num, int sign, t_s *s)
 	}
 }
 
-void		type_zeros_big_d(t_mod *mod, char *num, int sign, t_s *s)
+void		type_zeros_u(t_mod *mod, char *num, int sign, t_s *s)
 {
 	int	i;
 	int	num_len;
@@ -61,9 +65,9 @@ void		type_zeros_big_d(t_mod *mod, char *num, int sign, t_s *s)
 	num_len = (num[0] == '-') ? (int)ft_strlen(num) - 1 : (int)ft_strlen(num);
 	s->return_val += (ft_strchr(mod->flags, '.') && !mod->prec &&
 		!ft_strcmp(num, "0")) ? 0 : num_len;
-	if (num[0] == '-')
+	if ((ft_strchr(mod->flags, '+') && mod->type != 'u') || num[0] == '-')
 		s->return_val += (num[0] == '-') ? write(1, "-", 1) : write(1, "+", 1);
-	else if (ft_strchr(mod->flags, ' '))
+	else if (ft_strchr(mod->flags, ' ') && mod->type != 'u')
 		s->return_val += (num[0] == '-') ? write(1, "-", 1) : write(1, " ", 1);
 	if (ft_strchr(mod->flags, '0'))
 	{
@@ -77,27 +81,27 @@ void		type_zeros_big_d(t_mod *mod, char *num, int sign, t_s *s)
 	}
 }
 
-void		type_big_d(t_mod *mod, t_s *s)
+void		type_u(t_mod *mod, t_s *s)
 {
 	int			sign;
 	char		*num;
 	intmax_t	val;
 
-	val = deal_with_size_big_d(mod, s);
-	num = ft_itoa_long(val);
+	val = deal_with_size_u(mod, s);
+	num = ft_itoa_ulong(val);
 	sign = (ft_strchr(mod->flags, '+') || ft_strchr(mod->flags, ' ') ||
 		num[0] == '-') ? 1 : 0;
 	if (ft_strchr(mod->flags, '-'))
 	{
-		type_zeros_big_d(mod, num, sign, s);
+		type_zeros_u(mod, num, sign, s);
 		if (!(ft_strchr(mod->flags, '.') && mod->prec == 0 && val == 0))
 			(mod->flags && num[0] == '-') ? ft_putstr(num + 1) : ft_putstr(num);
-		type_spaces_big_d(mod, num, sign, s);
+		type_spaces_u(mod, num, sign, s);
 	}
 	else
 	{
-		type_spaces_big_d(mod, num, sign, s);
-		type_zeros_big_d(mod, num, sign, s);
+		type_spaces_u(mod, num, sign, s);
+		type_zeros_u(mod, num, sign, s);
 		if (!(ft_strchr(mod->flags, '.') && mod->prec == 0 && val == 0))
 			(mod->flags && num[0] == '-') ? ft_putstr(num + 1) : ft_putstr(num);
 	}

@@ -6,7 +6,7 @@
 /*   By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/30 19:28:41 by dmulish           #+#    #+#             */
-/*   Updated: 2017/06/10 12:31:25 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/07/12 14:05:44 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@ void	print_flags(t_mod *mod, t_s *s)
 {
 	if (mod->type == 'd' || mod->type == 'i')
 		type_d(mod, s);
-	else if (mod->type == 'D' || mod->type == 'u' || mod->type == 'U')
+	else if (mod->type == 'D')
 		type_big_d(mod, s);
+	else if (mod->type == 'u' || mod->type == 'U')
+		type_u(mod, s);
 	else if (mod->type == 'o' || mod->type == 'O')
 		type_o(mod, s);
 	else if (mod->type == 'x' || mod->type == 'X')

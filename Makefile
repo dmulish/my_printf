@@ -6,7 +6,7 @@
 #    By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/03 14:47:30 by dmulish           #+#    #+#              #
-#    Updated: 2017/06/10 12:24:12 by dmulish          ###   ########.fr        #
+#    Updated: 2017/07/12 14:49:26 by dmulish          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRCS = srcs/type_c.c			\
 	   srcs/type_o.c			\
 	   srcs/type_p.c			\
 	   srcs/type_s.c			\
+	   srcs/type_u.c			\
 	   srcs/type_x.c			\
 	   srcs/type_smth.c			\
 	   srcs/ft_printf.c			\
@@ -26,6 +27,7 @@ SRCS = srcs/type_c.c			\
 	   srcs/print_flags.c		\
 	   srcs/handle_modif.c		\
 	   srcs/ft_itoa_long.c		\
+	   srcs/ft_itoa_ulong.c		\
 
 SRCS_LIB = libft/ft_atoi.c		\
 		   libft/ft_bzero.c		\

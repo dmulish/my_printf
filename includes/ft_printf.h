@@ -6,7 +6,7 @@
 /*   By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 14:47:09 by dmulish           #+#    #+#             */
-/*   Updated: 2017/06/10 12:24:09 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/07/12 14:48:24 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void			type_d(t_mod *mod, t_s *s);
 void			type_o(t_mod *mod, t_s *s);
 void			type_p(t_mod *mod, t_s *s);
 void			type_s(t_mod *mod, t_s *s);
+void			type_u(t_mod *mod, t_s *s);
 void			type_x(t_mod *mod, t_s *s);
 void			type_smth(t_mod *mod, t_s *s);
 void			type_big_d(t_mod *mod, t_s *s);
@@ -51,5 +52,6 @@ void			print_flags(t_mod *mod, t_s *s);
 void			handle_modif(char *str, int *i, t_s *s);
 
 char			*ft_itoa_long(long long n);
+char			*ft_itoa_ulong(unsigned long long n);
 
 #endif
