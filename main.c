@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bstrlen.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/12 16:12:52 by dmulish           #+#    #+#             */
-/*   Updated: 2017/07/12 17:09:01 by dmulish          ###   ########.fr       */
+/*   Created: 2017/07/12 13:49:22 by dmulish           #+#    #+#             */
+/*   Updated: 2017/07/12 17:10:06 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stdio.h>
+#include "includes/ft_printf.h"
 
-size_t	ft_bstrlen(wchar_t *s)
+int		main(void)
 {
-	size_t	i;
-
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
-		i++;
-	return (i);
+	printf("%d\n", printf("  :%S\n", L"ͽ"));
+	printf("%d\n", ft_printf("my:%S\n", L"ͽ"));
+	return (0);
 }
