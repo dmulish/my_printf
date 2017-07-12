@@ -6,7 +6,7 @@
 /*   By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/12 14:06:08 by dmulish           #+#    #+#             */
-/*   Updated: 2017/07/12 15:49:03 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/07/12 15:50:17 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void		type_u(t_mod *mod, t_s *s)
 	intmax_t	val;
 
 	val = deal_with_size_u(mod, s);
-	num = ft_itoa_long(val);
+	num = ft_itoa_ulong(val);
 	sign = (ft_strchr(mod->flags, '+') || ft_strchr(mod->flags, ' ') ||
 		num[0] == '-') ? 1 : 0;
 	if (ft_strchr(mod->flags, '-'))
