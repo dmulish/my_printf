@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putbstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+        */
+/*   By: dmulish <dmulish@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/12 16:15:44 by dmulish           #+#    #+#             */
-/*   Updated: 2017/07/12 17:10:02 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/07/16 17:45:38 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ void	ft_putbstr(wchar_t *s)
 	if (!s)
 		return ;
 	while (s[++i])
-		write(1, &s[i], 1);
+		write(1, &s[i], 2);
 }
