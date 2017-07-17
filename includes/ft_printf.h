@@ -6,7 +6,7 @@
 /*   By: dmulish <dmulish@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 14:47:09 by dmulish           #+#    #+#             */
-/*   Updated: 2017/07/17 16:39:42 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/07/17 23:27:40 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdarg.h>
 # include <stdlib.h>
+#include <stdint.h>
 # include <unistd.h>
 # include "../libft/libft.h"
 

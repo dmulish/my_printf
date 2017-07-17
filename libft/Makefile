@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+         #
+#    By: dmulish <dmulish@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/02 19:05:10 by dmulish           #+#    #+#              #
-#    Updated: 2017/06/09 17:38:35 by dmulish          ###   ########.fr        #
+#    Updated: 2017/07/18 02:12:12 by dmulish          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,6 +77,7 @@ SRCS = ft_memset.c		\
 	   ft_lstmap.c		\
 	   ft_atoi_base.c	\
 	   ft_itoa_base.c	\
+	   ft_revstr.c		\
 	   get_next_line.c
 
 BINS = $(SRCS:.c=.o)

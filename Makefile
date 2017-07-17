@@ -6,7 +6,7 @@
 #    By: dmulish <dmulish@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/03 14:47:30 by dmulish           #+#    #+#              #
-#    Updated: 2017/07/17 16:39:27 by dmulish          ###   ########.fr        #
+#    Updated: 2017/07/18 02:12:29 by dmulish          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,8 +35,10 @@ SRCS = srcs/type_c.c			\
 SRCS_LIB = libft/ft_atoi.c		\
 		   libft/ft_bzero.c		\
 		   libft/ft_putstr.c	\
+		   libft/ft_revstr.c	\
 		   libft/ft_strchr.c	\
 		   libft/ft_strlen.c	\
+		   libft/ft_strnew.c	\
 		   libft/ft_strsub.c	\
 		   libft/ft_strdup.c	\
 		   libft/ft_strcmp.c	\

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+        */
+/*   By: dmulish <dmulish@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/25 19:45:27 by dmulish           #+#    #+#             */
-/*   Updated: 2017/06/10 11:45:44 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/07/18 02:11:43 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 # include <sys/types.h>
 # include <sys/uio.h>
+#include <stdint.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
@@ -162,5 +163,7 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int					ft_atoi_base(char *str, int base);
 
 char				*ft_itoa_base(intmax_t num, int base, int letter_size);
+
+char				*ft_revstr(char *str);
 
 #endif
