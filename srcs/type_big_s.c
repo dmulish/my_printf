@@ -6,7 +6,7 @@
 /*   By: dmulish <dmulish@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/12 16:08:21 by dmulish           #+#    #+#             */
-/*   Updated: 2017/07/18 00:17:07 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/07/18 02:36:47 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,15 @@ void	minus_bs(t_mod *mod, t_s *s, wchar_t *str)
 	{
 		if (!ft_strchr(mod->flags, '.'))
 		{
-			ft_putbstr(str);
+			ft_putwstr(str);
 			s->return_val += ft_bstrlen(str);
 		}
 	}
 	else if (ft_bstrlen(str))
 	{
 		while (++i < mod->prec && str[i])
-			s->return_val += write(1, &str[i], 1);
+			ft_putwchar(str[i]);
+		s->return_val += ft_bstrlen(str);
 	}
 	type_spaces_bs(mod, str, s);
 }
@@ -85,14 +86,15 @@ void	type_big_s(t_mod *mod, t_s *s)
 		{
 			if (!ft_strchr(mod->flags, '.'))
 			{
-				ft_putbstr(str);
+				ft_putwstr(str);
 				s->return_val += ft_bstrlen(str);
 			}
 		}
 		else if (ft_bstrlen(str))
 		{
 			while (++i < mod->prec && str[i])
-				s->return_val += write(1, &str[i], 1);
+				ft_putwchar(str[i]);
+			s->return_val += ft_bstrlen(str);
 		}
 	}
 }

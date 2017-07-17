@@ -6,7 +6,7 @@
 #    By: dmulish <dmulish@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/03 14:47:30 by dmulish           #+#    #+#              #
-#    Updated: 2017/07/18 02:12:29 by dmulish          ###   ########.fr        #
+#    Updated: 2017/07/18 02:35:32 by dmulish          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,9 +24,10 @@ SRCS = srcs/type_c.c			\
 	   srcs/type_smth.c			\
 	   srcs/ft_printf.c			\
 	   srcs/ft_bstrlen.c		\
-	   srcs/ft_putbstr.c		\
+	   srcs/ft_putwstr.c		\
 	   srcs/type_big_d.c		\
 	   srcs/type_big_s.c		\
+	   srcs/ft_putwchar.c		\
 	   srcs/print_flags.c		\
 	   srcs/handle_modif.c		\
 	   srcs/ft_itoa_long.c		\
