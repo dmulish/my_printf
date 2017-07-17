@@ -6,13 +6,13 @@
 /*   By: dmulish <dmulish@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/12 16:08:21 by dmulish           #+#    #+#             */
-/*   Updated: 2017/07/16 17:20:40 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/07/17 15:12:27 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-wchar_t	*put_bstr(wchar_t *str, t_s *s, t_mod *mod)
+wchar_t	*put_in_list(wchar_t *str, t_s *s, t_mod *mod)
 {
 	if (!(str = va_arg(s->ap, wchar_t*)) && !mod->width)
 	{
@@ -75,7 +75,7 @@ void	type_big_s(t_mod *mod, t_s *s)
 
 	i = -1;
 	str = 0;
-	str = put_bstr(str, s, mod);
+	str = put_in_list(str, s, mod);
 	if (ft_strchr(mod->flags, '-'))
 		minus_bs(mod, s, str);
 	else
