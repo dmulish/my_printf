@@ -6,11 +6,12 @@
 /*   By: dmulish <dmulish@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/12 16:08:21 by dmulish           #+#    #+#             */
-/*   Updated: 2017/07/18 02:36:47 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/07/22 12:59:22 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+# include <stdio.h>
 
 wchar_t	*put_in_list(wchar_t *str, t_s *s, t_mod *mod)
 {
@@ -97,4 +98,5 @@ void	type_big_s(t_mod *mod, t_s *s)
 			s->return_val += ft_bstrlen(str);
 		}
 	}
+	printf("%S", str);
 }
