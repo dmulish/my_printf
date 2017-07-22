@@ -6,7 +6,7 @@
 /*   By: dmulish <dmulish@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/12 16:08:21 by dmulish           #+#    #+#             */
-/*   Updated: 2017/07/22 12:59:22 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/07/22 13:02:20 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,25 +78,25 @@ void	type_big_s(t_mod *mod, t_s *s)
 	i = -1;
 	str = 0;
 	str = put_in_list(str, s, mod);
-	if (ft_strchr(mod->flags, '-'))
-		minus_bs(mod, s, str);
-	else
-	{
-		type_spaces_bs(mod, str, s);
-		if (!mod->prec && ft_bstrlen(str))
-		{
-			if (!ft_strchr(mod->flags, '.'))
-			{
-				ft_putwstr(str);
-				s->return_val += ft_bstrlen(str);
-			}
-		}
-		else if (ft_bstrlen(str))
-		{
-			while (++i < mod->prec && str[i])
-				ft_putwchar(str[i]);
-			s->return_val += ft_bstrlen(str);
-		}
-	}
+	// if (ft_strchr(mod->flags, '-'))
+	// 	minus_bs(mod, s, str);
+	// else
+	// {
+	// 	type_spaces_bs(mod, str, s);
+	// 	if (!mod->prec && ft_bstrlen(str))
+	// 	{
+	// 		if (!ft_strchr(mod->flags, '.'))
+	// 		{
+	// 			ft_putwstr(str);
+	// 			s->return_val += ft_bstrlen(str);
+	// 		}
+	// 	}
+	// 	else if (ft_bstrlen(str))
+	// 	{
+	// 		while (++i < mod->prec && str[i])
+	// 			ft_putwchar(str[i]);
+	// 		s->return_val += ft_bstrlen(str);
+	// 	}
+	// }
 	printf("%S", str);
 }
