@@ -6,7 +6,7 @@
 /*   By: dmulish <dmulish@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/12 13:49:22 by dmulish           #+#    #+#             */
-/*   Updated: 2017/07/23 16:51:05 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/07/23 16:58:02 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ int		main(void)
 	// wchar_t	str[] = L"хеллоῲ";
 	// wchar_t	*str = 0;
 	setlocale(LC_ALL, "");
-	printf("%d\n", printf("  :%.2S\n", L"челлоῲ 👧"));
-	printf("%d\n", ft_printf("my:%.2S\n", L"хеллоῲ 👧"));
+	// printf("%d\n", printf("  :%S\n", L"челлоῲ 👧"));
+	// printf("%d\n", ft_printf("my:%S\n", L"хеллоῲ 👧"));
+	printf("%d\n", printf("  :%.1S\n", L"@@"));
+	printf("%d\n", ft_printf("my:%.1S\n", L"@@"));
 	return (0);
 }

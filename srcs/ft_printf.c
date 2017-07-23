@@ -6,11 +6,12 @@
 /*   By: dmulish <dmulish@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 15:39:19 by dmulish           #+#    #+#             */
-/*   Updated: 2017/07/17 17:43:45 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/07/23 17:00:47 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+# include <stdio.h>
 
 void	init_struct(t_s *s)
 {
@@ -41,11 +42,14 @@ void	print_it(char *str, t_s *s)
 
 int		ft_printf(char *str, ...)
 {
-	t_s		s;
-
-	init_struct(&s);
-	va_start(s.ap, str);
-	print_it(str, &s);
-	va_end(s.ap);
-	return (s.return_val);
+	(void)str;
+	printf("!!!%s!!!\n", str);
+	// t_s		s;
+	//
+	// init_struct(&s);
+	// va_start(s.ap, str);
+	// print_it(str, &s);
+	// va_end(s.ap);
+	// return (s.return_val);
+	return (0);
 }
