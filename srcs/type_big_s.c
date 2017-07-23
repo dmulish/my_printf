@@ -6,7 +6,7 @@
 /*   By: dmulish <dmulish@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/12 16:08:21 by dmulish           #+#    #+#             */
-/*   Updated: 2017/07/23 16:55:13 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/07/23 18:21:36 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,34 @@ void	minus_bs(t_mod *mod, t_s *s, wchar_t *str)
 	type_spaces_bs(mod, str, s);
 }
 
-void	type_big_s(t_mod *mod, t_s *s)
+void	type_str(t_mod *mod, wchar_t *str, t_s *s)
 {
-	int		i;
-	wchar_t	*str;
+	int	i;
 
 	i = 0;
+	if (!mod->prec && ft_bstrlen(str))
+	{
+		if (!ft_strchr(mod->flags, '.'))
+		{
+			ft_putwstr(str);
+			s->return_val += ft_bstrlen(str);
+		}
+	}
+	else if (ft_bstrlen(str))
+	{
+		while (i < mod->prec / (int)ft_wcharlen(str[i]) && str[i])
+		{
+			ft_putwchar(str[i]);
+			s->return_val += ft_wcharlen(str[i]);
+			i++;
+		}
+	}
+}
+
+void	type_big_s(t_mod *mod, t_s *s)
+{
+	wchar_t	*str;
+
 	str = 0;
 	str = put_in_list(str, s, mod);
 	if (!str)
@@ -84,22 +106,6 @@ void	type_big_s(t_mod *mod, t_s *s)
 	else
 	{
 		type_spaces_bs(mod, str, s);
-		if (!mod->prec && ft_bstrlen(str))
-		{
-			if (!ft_strchr(mod->flags, '.'))
-			{
-				ft_putwstr(str);
-				s->return_val += ft_bstrlen(str);
-			}
-		}
-		else if (ft_bstrlen(str))
-		{
-			while (i < mod->prec / (int)ft_wcharlen(str[i]) && str[i])
-			{
-				ft_putwchar(str[i]);
-				s->return_val += ft_wcharlen(str[i]);
-				i++;
-			}
-		}
+		type_str(mod, str, s);
 	}
 }
