@@ -6,7 +6,7 @@
 /*   By: dmulish <dmulish@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/25 19:45:27 by dmulish           #+#    #+#             */
-/*   Updated: 2017/07/18 02:11:43 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/07/23 18:34:55 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 # include <sys/types.h>
 # include <sys/uio.h>
-#include <stdint.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
