@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_modif.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmulish <dmulish@student.unit.ua>          +#+  +:+       +#+        */
+/*   By: dmulish <dmulish@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/29 18:04:11 by dmulish           #+#    #+#             */
-/*   Updated: 2017/06/10 12:05:34 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/07/23 18:13:16 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ void	handle_modif(char *str, int *i, t_s *s)
 	while (ft_strchr(mod.modifs, str[*i + j]))
 		j++;
 	mod.type = str[*i + j];
+	if ((mod.type == 's' || mod.type == 'c') && (str[*i + j - 1] == 'l'))
+		mod.type = (mod.type == 's') ? 'S' : 'C';
 	tmp = ft_strsub(str, (unsigned int)*i, j);
 	fill_struct(tmp, &mod);
 	print_flags(&mod, s);
