@@ -6,7 +6,7 @@
 /*   By: dmulish <dmulish@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/12 16:08:21 by dmulish           #+#    #+#             */
-/*   Updated: 2017/07/22 13:04:09 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/07/23 16:02:32 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ void	type_big_s(t_mod *mod, t_s *s)
 	i = -1;
 	str = 0;
 	str = put_in_list(str, s, mod);
+	if (!str)
+		return ;
 	if (ft_strchr(mod->flags, '-'))
 		minus_bs(mod, s, str);
 	else
