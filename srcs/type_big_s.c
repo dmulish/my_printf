@@ -6,7 +6,7 @@
 /*   By: dmulish <dmulish@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/12 16:08:21 by dmulish           #+#    #+#             */
-/*   Updated: 2017/07/23 16:49:04 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/07/23 16:53:10 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	type_big_s(t_mod *mod, t_s *s)
 	int		i;
 	wchar_t	*str;
 
-	i = -1;
+	i = 0;
 	str = 0;
 	str = put_in_list(str, s, mod);
 	if (!str)
@@ -94,10 +94,11 @@ void	type_big_s(t_mod *mod, t_s *s)
 		}
 		else if (ft_bstrlen(str))
 		{
-			while (++i < mod->prec / 3 && str[i])
+			while (i < mod->prec / (int)ft_wcharlen(str[i]) && str[i])
 			{
 				ft_putwchar(str[i]);
 				s->return_val += ft_wcharlen(str[i]);
+				i++;
 			}
 		}
 	}
