@@ -6,13 +6,13 @@
 /*   By: dmulish <dmulish@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/18 02:31:35 by dmulish           #+#    #+#             */
-/*   Updated: 2017/07/18 02:34:37 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/07/23 16:46:17 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_wlen(wchar_t s)
+size_t	ft_wcharlen(wchar_t s)
 {
 	size_t	n;
 
@@ -33,7 +33,7 @@ void	ft_putwchar(wchar_t s)
 	int		size;
 	char	*mbs;
 
-	size = (int)ft_wlen(s);
+	size = (int)ft_wcharlen(s);
 	mbs = ft_strnew(size);
 	size == 4 ? (mbs[3] = 240 | (s >> 18)) : 0;
 	size == 4 ? (mbs[2] = 128 | (s >> 12 & 63)) : 0;

@@ -6,7 +6,7 @@
 /*   By: dmulish <dmulish@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 14:47:09 by dmulish           #+#    #+#             */
-/*   Updated: 2017/07/18 02:35:43 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/07/23 16:47:53 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <stdarg.h>
 # include <stdlib.h>
-#include <stdint.h>
 # include <unistd.h>
 # include "../libft/libft.h"
 
@@ -59,5 +58,6 @@ char			*ft_itoa_ulong(size_t n);
 char			*ft_itoa_long(long long n);
 
 size_t			ft_bstrlen(wchar_t *str);
+size_t			ft_wcharlen(wchar_t s);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: dmulish <dmulish@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/12 16:08:21 by dmulish           #+#    #+#             */
-/*   Updated: 2017/07/23 16:02:32 by dmulish          ###   ########.fr       */
+/*   Updated: 2017/07/23 16:49:04 by dmulish          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	type_spaces_bs(t_mod *mod, wchar_t *str, t_s *s)
 
 	i = -1;
 	str_len = (int)ft_bstrlen(str);
-	len = (!ft_strchr(mod->flags, '.') || !str_len || (mod->prec > str_len))
+	len = (!ft_strchr(mod->flags, '.') || (mod->prec > str_len))
 		? str_len : mod->prec;
 	if (ft_strchr(mod->flags, '.'))
 	{
@@ -94,9 +94,11 @@ void	type_big_s(t_mod *mod, t_s *s)
 		}
 		else if (ft_bstrlen(str))
 		{
-			while (++i < mod->prec && str[i])
+			while (++i < mod->prec / 3 && str[i])
+			{
 				ft_putwchar(str[i]);
-			s->return_val += ft_bstrlen(str);
+				s->return_val += ft_wcharlen(str[i]);
+			}
 		}
 	}
 }
